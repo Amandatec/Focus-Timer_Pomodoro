@@ -8,11 +8,29 @@ let minutes
 let minutesDisplay = document.querySelector('.minutes')
 let secondsDisplay = document.querySelector('.seconds')
 
+function countdown() {
+
+  setTimeout(function(){
+    let seconds = Number(secondsDisplay.textContent)
+    
+    if(seconds <= 0){
+      seconds =60
+    }
+    
+    secondsDisplay.textContent = seconds -1
+    countdown()
+  }, 1000)
+
+   
+}
+
 buttonPlay.addEventListener('click',function(){
   buttonPlay.classList.add('hide')
   buttonPause.classList.remove('hide')
   buttonSet.classList.add('hide')
   buttonStop.classList.remove('hide')
+
+  countdown()
 })
 
 buttonPause.addEventListener('click', function(){
