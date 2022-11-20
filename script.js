@@ -17,7 +17,7 @@ function countdown() {
       seconds =60
     }
     
-    secondsDisplay.textContent = seconds -1
+    secondsDisplay.textContent = String(seconds -1).padStart(2, "0")
     countdown()
   }, 1000)
 
