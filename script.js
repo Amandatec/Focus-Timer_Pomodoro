@@ -12,12 +12,20 @@ function countdown() {
 
   setTimeout(function(){
     let seconds = Number(secondsDisplay.textContent)
-    
+    let minutes = Number(minutesDisplay.textContent)
     if(seconds <= 0){
       seconds =60
+
+      minutesDisplay.textContent = minutes -1
     }
-    
+
     secondsDisplay.textContent = String(seconds -1).padStart(2, "0")
+
+    if(minutes <= 0) {
+      return
+    }
+
+   
     countdown()
   }, 1000)
 
